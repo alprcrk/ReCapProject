@@ -9,7 +9,7 @@ namespace Entities.Concrete
 {
     public class Car : IEntity
     {
-        // Id, BrandId, ColorId, ModelYear, DailyPrice, Description 
+        // Id, BrandId, CarBrand, ColorId, CarColor, ModelYear, DailyPrice, Description 
         public int Id { get; set; } // PK
 
         public int BrandId { get; set; } // FK
@@ -21,6 +21,7 @@ namespace Entities.Concrete
         public DateTime ModelYear { get; set; }
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
+        public string CarName { get; set; }
 
 
     }

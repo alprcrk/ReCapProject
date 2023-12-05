@@ -6,7 +6,7 @@ public class Program
 {
     private static void Main(string[] args)
     {
-        //CarTest();
+        CarTest();
         //BrandTest();
     }
 
@@ -23,9 +23,19 @@ public class Program
     {
         CarManager carManager = new CarManager(new EfCarDal());
 
-        foreach (var car in carManager.GetCarDetails())
+        var result = carManager.GetCarDetails();
+
+        if (result.Success == true)
         {
-            Console.WriteLine(car.BrandName + "/" + car.ColorName);
+            foreach (var car in carManager.GetCarDetails().Data)
+            {
+                Console.WriteLine(car.BrandName + " / " + car.CarName + " / " + car.DailyPrice);
+            }
         }
+        else
+        {
+            Console.WriteLine(result.Message);
+        }
+
     }
 }
